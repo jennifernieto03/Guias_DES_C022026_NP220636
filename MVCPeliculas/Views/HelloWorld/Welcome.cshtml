@@ -1,11 +1,12 @@
-﻿<h1>Bienvenido</h1>
+﻿@{
+    ViewData["Title"] = "Bienvenido";
+}
+
+<h1>Bienvenido</h1>
 
 <ul>
-    @{
-        int numVeces = (int)ViewData["numVeces"];
-        for (int i = 0; i < numVeces; i++)
-        {
-            <li>@ViewData["nombre"]</li>
-        }
+    @for (int i = 1; i <= (int)ViewData["NumVeces"]; i++)
+    {
+        <li>Hola @ViewData["NombreCompleto"], veces mostrado = @i</li>
     }
 </ul>

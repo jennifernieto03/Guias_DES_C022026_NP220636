@@ -15,10 +15,12 @@ namespace MVCPeliculas.Controllers
             return "Esta es mi acción <b> predeterminada </b>";
         }*/
 
-        public ActionResult Welcome(string nombre, int numVeces = 1)
+        // Modificación para el Ejercicio 1
+        public IActionResult Welcome(string nombre, string apellido, int numVeces = 1)
         {
-            ViewData["nombre"] = "Hola " + nombre;
-            ViewData["numVeces"] = numVeces;
+            ViewData["NombreCompleto"] = $"{nombre} {apellido}";
+            ViewData["NumVeces"] = numVeces;
+
             return View();
         }
 

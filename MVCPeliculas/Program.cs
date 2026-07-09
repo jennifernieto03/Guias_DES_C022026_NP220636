@@ -21,9 +21,12 @@ app.UseAuthorization();
 app.MapStaticAssets();
 
 app.MapControllerRoute(
+    name: "ejercicio1",
+    pattern: "{controller=HelloWorld}/{action=Welcome}/{nombre}/{apellido}/{numVeces?}");
+
+app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
     name: "saludar",
