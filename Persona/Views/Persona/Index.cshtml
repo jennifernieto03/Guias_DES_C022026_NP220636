@@ -1,0 +1,14 @@
+﻿@model global::Persona.Models.Persona
+
+@{
+    ViewData["Title"] = "Datos de la Persona";
+}
+
+<h1>Información del Perfil</h1>
+
+<ul>
+    <li><strong>DUI:</strong> @Model.DUI</li>
+    <li><strong>Nombre:</strong> @Model.Nombre</li>
+    <li><strong>Apellido:</strong> @Model.Apellido</li>
+    <li><strong>Fecha de Nacimiento:</strong> @Model.FechaNacimiento.ToShortDateString()</li>
+</ul>
