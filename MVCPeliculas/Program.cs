@@ -1,9 +1,21 @@
+using Microsoft.EntityFrameworkCore;
+using MVCPeliculas.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// ---> REGISTRO DEL CONTEXTO DE BASE DE DATOS
+builder.Services.AddDbContext<PeliculasDbContext>(item =>
+item.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
+// ---> REGISTRO DEL CONTEXTO DE BASE DE DATOS
+
 var app = builder.Build();
+
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
