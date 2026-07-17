@@ -1,7 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using Ejercicio.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// REGISTRO DEL CONTEXTO DE BASE DE DATOS
+builder.Services.AddDbContext<EjercicioDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
 
 var app = builder.Build();
 
