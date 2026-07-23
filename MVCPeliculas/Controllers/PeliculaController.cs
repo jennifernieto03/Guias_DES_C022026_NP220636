@@ -14,9 +14,13 @@ public class PeliculaController : Controller
     }
 
     // GET: PELICULAS
-    public async Task<IActionResult> Index()    
+    public async Task<IActionResult> Index(string? searchString)    
     {
-        return View(await _context.Peliculas.ToListAsync());
+        var peliculas = await _context.Peliculas
+        .Include(p => p.Genero)
+        .Where(p=> string.IsNullOrEmpty(searchString) || p.Titulo.Contains(searchString))
+        .ToListAsync();
+        return View(peliculas);
     }
 
     // GET: PELICULAS/Details/5
