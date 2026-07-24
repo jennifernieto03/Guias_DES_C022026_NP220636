@@ -11,4 +11,11 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="10.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Biblioteca.BL\Biblioteca.BL.csproj" />
+    <ProjectReference Include="..\Biblioteca.Common\Biblioteca.Common.csproj" />
+    <ProjectReference Include="..\Biblioteca.DAL\Biblioteca.DAL.csproj" />
+    <ProjectReference Include="..\Biblioteca.Entites\Biblioteca.Entites.csproj" />
+  </ItemGroup>
+
 </Project>

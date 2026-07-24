@@ -6,4 +6,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.79" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Biblioteca.BL\Biblioteca.BL.csproj" />
+    <ProjectReference Include="..\Biblioteca.Common\Biblioteca.Common.csproj" />
+    <ProjectReference Include="..\Biblioteca.Entites\Biblioteca.Entites.csproj" />
+  </ItemGroup>
+
 </Project>

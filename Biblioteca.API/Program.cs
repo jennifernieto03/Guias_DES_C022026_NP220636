@@ -1,3 +1,5 @@
+using Biblioteca.Common;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +9,7 @@ builder.Services.AddOpenApi();
 
 // Swagger UI
 builder.Services.AddSwaggerGen(); // NUEVO
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
 var app = builder.Build();
 
