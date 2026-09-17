@@ -1,37 +1,22 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿// Data/LibrosDbContext.cs
+using Microsoft.EntityFrameworkCore;
+using LibrosAPI.Models;
 
-namespace LibrosAPI.Models;
-
-public class LibrosDbContext(DbContextOptions options) : DbContext(options)
+public class LibrosDbContext : DbContext
 {
+    public LibrosDbContext(DbContextOptions<LibrosDbContext> options) : base(options) { }
+
     public DbSet<Libro> Libros { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
+        
         modelBuilder.Entity<Libro>().HasData(
-            new Libro
-            {
-                Id = 1,
-                Titulo = "Cien años de soledad",
-                Autor = "Gabriel García Márquez",
-                AnioPublicacion = 1967
-            },
-            new Libro
-            {
-                Id = 2,
-                Titulo = "Don Quijote de la Mancha",
-                Autor = "Miguel de Cervantes",
-                AnioPublicacion = 1605
-            },
-            new Libro
-            {
-                Id = 3,
-                Titulo = "El amor en los tiempos del cólera",
-                Autor = "Gabriel García Márquez",
-                AnioPublicacion = 1985
-            }
+            new Libro { Id = 1, Titulo = "El Imperio Final", Autor = "Brandon Sanderson", Genero = "Fantasía", AnioPublicacion = 2006 },
+            new Libro { Id = 2, Titulo = "Dune", Autor = "Frank Herbert", Genero = "Ciencia Ficción", AnioPublicacion = 1965 }
+            
         );
     }
 }

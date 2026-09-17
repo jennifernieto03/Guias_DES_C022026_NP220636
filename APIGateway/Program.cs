@@ -10,8 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 var authenticationProviderKey = "IdentityApiKey";
 
 // 2. Configurar la validación del Token JWT
-builder.Services.AddAuthentication()
-    .AddJwtBearer(authenticationProviderKey, options =>
+builder.Services.AddAuthentication().AddJwtBearer(authenticationProviderKey, options =>
     {
         options.RequireHttpsMetadata = false;
         options.SaveToken = true;
