@@ -42,7 +42,7 @@ namespace LibrosAPI.Controllers
             // Si la lista no está vacía se retorna desde la caché[cite: 1]
             if (!librosCache.IsNullOrEmpty)
             {
-                return JsonSerializer.Deserialize<List<Libro>>(librosCache);
+                return JsonSerializer.Deserialize<List<Libro>>(librosCache.ToString());
             }
 
             // Caso contrario, se obtienen los libros desde la base de datos[cite: 1]
@@ -65,7 +65,7 @@ namespace LibrosAPI.Controllers
 
             if (!libroCache.IsNullOrEmpty)
             {
-                return JsonSerializer.Deserialize<Libro>(libroCache);
+                return JsonSerializer.Deserialize<Libro>(libroCache.ToString());
             }
 
             var libro = await _context.Libros.FindAsync(id);
@@ -122,15 +122,13 @@ namespace LibrosAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Libro>> PostLibro(Libro libro)
         {
+            // Nueva validación
+            if (string.IsNullOrEmpty(libro.Titulo))
+            {
+                return BadRequest("El libro no tiene título.");
+            }
             _context.Libros.Add(libro);
             await _context.SaveChangesAsync();
-
-            var dbRedis = _redis.GetDatabase();
-            var cacheKeyLista = "libros_list";
-
-            // Se elimina la lista almacenada para que al consultar de nuevo se incluya el nuevo libro[cite: 1]
-            await dbRedis.KeyDeleteAsync(cacheKeyLista);
-
             return CreatedAtAction("GetLibro", new { id = libro.Id }, libro);
         }
 

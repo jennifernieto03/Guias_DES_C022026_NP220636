@@ -5,8 +5,10 @@ using LibrosAPI.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Configuración de EF Core
-builder.Services.AddDbContext<LibrosDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+//builder.Services.AddDbContext<LibrosDbContext>(options =>
+// options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddDbContext<LibrosDbContext>(options => options.UseInMemoryDatabase("LibrosInMemoryDb"));
 
 // INICIO -> CONFIGURACION DE REDIS
 builder.Services.AddStackExchangeRedisOutputCache(options =>

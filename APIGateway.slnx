@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="APIGateway/APIGateway.csproj" />
+  <Project Path="LibrosAPI.Tests/LibrosAPI.Tests.csproj" Id="1fd7d105-ccbf-401f-9474-9f5d7c7e3107" />
   <Project Path="LibrosAPI/LibrosAPI.csproj" />
   <Project Path="ProductosAPI/ProductosAPI.csproj" />
 </Solution>
