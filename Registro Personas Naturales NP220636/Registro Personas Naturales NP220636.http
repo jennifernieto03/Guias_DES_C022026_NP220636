@@ -1,0 +1,6 @@
+@Registro_Personas_Naturales_NP220636_HostAddress = http://localhost:5156
+
+GET {{Registro_Personas_Naturales_NP220636_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
