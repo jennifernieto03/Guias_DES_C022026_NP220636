@@ -1,11 +1,12 @@
-﻿using Gestion_Vehiculos.Models;
+﻿using Gestion_Vehiculos.Data;
+using Gestion_Vehiculos.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Gestion_Vehiculos.Data;
 using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace Gestion_Vehiculos.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<Usuario> 
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

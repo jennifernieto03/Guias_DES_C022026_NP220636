@@ -1,10 +1,12 @@
+using Gestion_Vehiculos.Data;
+using Gestion_Vehiculos.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Gestion_Vehiculos.Models;
-using Gestion_Vehiculos.Data;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class VehiculosController : ControllerBase
 {
     private readonly ApplicationDbContext _context;
